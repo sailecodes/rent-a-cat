@@ -66,7 +66,7 @@ const HomeWrapper = styled.main`
     }
   }
 
-  @media (min-width: 650px) {
+  @media (min-width: 670px) {
     .home--hero > div:nth-child(1) {
       width: 55rem;
     }
