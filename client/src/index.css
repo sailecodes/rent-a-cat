@@ -10,16 +10,28 @@
   --font-logo-lg: 3rem;
   --font-logo-sm: 2.5rem;
 
-  --font-nav-lg: 1.7rem;
-  --font-nav-sm: 1.5rem;
+  --font-nav-lg: 1.8rem;
+  --font-nav-sm: 1.6rem;
 
-  --font-hero-tagline-sm: 3rem;
-  --font-hero-tagline-md: 4rem;
   --font-hero-tagline-lg: 5rem;
+  --font-hero-tagline-md: 4rem;
+  --font-hero-tagline-sm: 3rem;
 
-  --font-hero-description-sm: 1.2rem;
-  --font-hero-description-md: 1.5rem;
   --font-hero-description-lg: 2rem;
+  --font-hero-description-md: 1.5rem;
+  --font-hero-description-sm: 1.3rem;
+
+  --font-text-lg: 1.6rem;
+  --font-text-sm: 1.4rem;
+
+  --svg-size-lg: 3rem;
+  --svg-size-md: 2.8rem;
+  --svg-size-sm: 2.6rem;
+
+  --input-height-lg: 4rem;
+  --input-height-sm: 3.5rem;
+
+  --color-border: hsl(0, 0%, 93%);
 
   /* DEFAULT */
 
@@ -74,6 +86,9 @@ body {
   background-color: var(--color-white);
 
   font-family: "Poppins", sans-serif;
+}
+
+#root {
 }
 
 /* ============================================== */

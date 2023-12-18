@@ -5,6 +5,8 @@ const HomeWrapper = styled.main`
   display: grid;
   place-items: center;
 
+  padding: 2rem;
+
   > div {
     background-color: green;
 
@@ -66,7 +68,7 @@ const HomeWrapper = styled.main`
 
   @media (min-width: 650px) {
     .home--hero > div:nth-child(1) {
-      width: 60rem;
+      width: 55rem;
     }
 
     .home--hero-tagline {
@@ -95,7 +97,7 @@ const HomeWrapper = styled.main`
     }
   }
 
-  @media (min-width: 1170px) {
+  @media (min-width: 1160px) {
     .home--hero > div:nth-child(1) {
       width: 70rem;
     }
