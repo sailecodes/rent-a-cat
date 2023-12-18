@@ -1,17 +1,13 @@
+import kitten from "../../assets/imgs/kitten.jpg";
+
 import styled from "styled-components";
 const HomeWrapper = styled.main`
-  background-color: gray;
-
   display: grid;
   place-items: center;
 
   padding: 2rem;
 
   > div {
-    background-color: green;
-
-    /* max-width: 100rem; */
-
     height: 100%;
   }
 
@@ -20,6 +16,8 @@ const HomeWrapper = styled.main`
     flex-direction: column-reverse;
     align-items: center;
     gap: 2rem;
+
+    margin-bottom: 4rem;
   }
 
   .home--hero > div:nth-child(1) {
@@ -45,6 +43,15 @@ const HomeWrapper = styled.main`
 
     width: 28rem;
     height: 28rem;
+  }
+
+  .home--main-most-popular > header {
+    font-size: var(--font-text-lg);
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+
+    margin-bottom: 2rem;
   }
 
   @media (min-width: 490px) {
@@ -131,8 +138,66 @@ const Home = () => {
         <div className="home--hero-tmp-pic"></div>
         {/* <img src="" alt="" /> */}
       </section>
-      <section className="home--cats"></section>
+      <section className="home--main">
+        <div className="home--main-most-popular">
+          <header>Most popular cuties</header>
+          <div className="home-main-most-popular-cats">
+            <CatCard
+              data={{
+                name: "Asher",
+                age: "5 months",
+                breed: "Cutie patootie",
+                description: "A cutie patootie who runs around the house with a big smile on his face.",
+                price: "$1/hour",
+              }}
+            />
+          </div>
+        </div>
+        {/* <p className='home--main-trending'>Trending supercats</p> */}
+        {/* <p className='home--main-trending'>Trending supercats</p> */}
+      </section>
     </HomeWrapper>
   );
 };
+
+const CatCardWrapper = styled.div`
+  height: 50rem;
+
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+
+  width: 25rem;
+
+  img {
+    width: 25rem;
+    height: 25rem;
+
+    border-radius: 8px 8px 0 0;
+  }
+
+  .cat-card--info p {
+    display: flex;
+
+    font-size: var(--font-text-sm);
+  }
+`;
+
+const CatCard = ({ data }) => {
+  return (
+    <CatCardWrapper>
+      <img
+        src={kitten}
+        alt="Most popular kitten"
+      />
+      <div className="cat-card--info">
+        <p>{"Name: " + data.name}</p>
+        <p>{"Age: " + data.age}</p>
+        <p>{"Breed: " + data.breed}</p>
+        <p>{"Price: " + data.price}</p>
+        <p>{data.description}</p>
+      </div>
+    </CatCardWrapper>
+  );
+};
+
 export default Home;

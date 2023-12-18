@@ -1,4 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
+import { FaGithubSquare, FaLinkedin } from "react-icons/fa";
 
 import Footer from "./Footer";
 import ProfileIcon from "../custom/icons/ProfileIcon";
@@ -6,9 +7,10 @@ import HeartIcon from "../custom/icons/HeartIcon";
 import CartIcon from "../custom/icons/CartIcon";
 
 import styled from "styled-components";
+import CategoriesIcon from "../custom/icons/CategoriesIcon";
 const LayoutWrapper = styled.div`
   max-width: 116rem;
-  height: 100vh;
+  height: 100svh;
 
   margin: 0 auto;
 `;
@@ -16,21 +18,74 @@ const LayoutWrapper = styled.div`
 const Layout = () => {
   return (
     <LayoutWrapper>
-      <TopNavbar />
+      <SocialsNavBar />
+      <MainNavbar />
+      <CategoriesNavbar />
       <Outlet />
       <Footer />
-      <LowerNavbar />
+      <BottomNavbar />
     </LayoutWrapper>
   );
 };
 
-const TopNavbarWrapper = styled.nav`
+const SocialNavbarWrapper = styled.nav`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  padding: 1rem 2rem;
+
+  border-bottom: 1px solid var(--color-border);
+
+  p {
+    color: var(--color-gray);
+
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .fa-icon:hover {
+    cursor: pointer;
+  }
+`;
+
+const SocialsNavBar = () => {
+  return (
+    <SocialNavbarWrapper>
+      <a
+        href="https://www.linkedin.com/in/elias-roman-38440028b/"
+        target="_blank"
+        rel="noopener noreferrer">
+        <FaLinkedin
+          size={25}
+          color="gray"
+          className="fa-icon"
+        />
+      </a>
+      <a
+        href="https://github.com/sailecodes"
+        target="_blank"
+        rel="noopener noreferrer">
+        <FaGithubSquare
+          size={25}
+          color="gray"
+          className="fa-icon"
+        />
+      </a>
+    </SocialNavbarWrapper>
+  );
+};
+
+const MainNavbarWrapper = styled.nav`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
 
   padding: 1rem 2rem;
+
+  border-bottom: 1px solid var(--color-border);
 
   .navbar--logo {
     flex-shrink: 0;
@@ -42,6 +97,7 @@ const TopNavbarWrapper = styled.nav`
   .navbar--logo-text {
     flex-shrink: 0;
 
+    font-family: "Silkscreen", sans-serif;
     font-size: var(--font-logo-sm);
     font-weight: 600;
   }
@@ -52,6 +108,8 @@ const TopNavbarWrapper = styled.nav`
   }
 
   input {
+    color: var(--color-gray);
+
     height: var(--input-height-sm);
     width: 100%;
 
@@ -118,9 +176,9 @@ const TopNavbarWrapper = styled.nav`
   }
 `;
 
-const TopNavbar = () => {
+const MainNavbar = () => {
   return (
-    <TopNavbarWrapper>
+    <MainNavbarWrapper>
       <div className="navbar--logo">
         <p className="navbar--logo-text">Rent A Cat</p>
       </div>
@@ -142,24 +200,93 @@ const TopNavbar = () => {
           <CartIcon stroke="var(--color-black)" />
         </NavLink>
       </div>
-    </TopNavbarWrapper>
+    </MainNavbarWrapper>
   );
 };
 
-const LowerNavbarWrapper = styled.nav`
+const CategoriesNavbarWrapper = styled.nav`
+  display: none;
+
+  @media (min-width: 1024px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    height: 6.1rem;
+
+    border-bottom: 1px solid var(--color-border);
+
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      color: var(--color-black);
+
+      font-size: var(--font-text-lg);
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    a div {
+      width: 0rem;
+
+      border-bottom: 1px solid var(--color-black);
+
+      transition: width 0.3s;
+    }
+
+    a:hover div {
+      width: 100%;
+    }
+  }
+`;
+
+const CategoriesNavbar = () => {
+  return (
+    <CategoriesNavbarWrapper>
+      <NavLink>
+        Home
+        <div></div>
+      </NavLink>
+      <NavLink>
+        Baby Kittens
+        <div></div>
+      </NavLink>
+      <NavLink>
+        Growing Teens
+        <div></div>
+      </NavLink>
+      <NavLink>
+        Happy adults
+        <div></div>
+      </NavLink>
+      <NavLink>
+        Cute Oldies
+        <div></div>
+      </NavLink>
+    </CategoriesNavbarWrapper>
+  );
+};
+
+const BottomNavbarWrapper = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8rem;
+  gap: 6rem;
 
   position: fixed;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 100;
+
+  background-color: var(--color-white);
 
   width: 100%;
   max-width: 49.5rem;
-  height: 5.5rem;
+  height: 5rem;
 
   padding: 0 4rem;
 
@@ -169,7 +296,8 @@ const LowerNavbarWrapper = styled.nav`
 
   transition: border-radius 0.2s;
 
-  a {
+  a,
+  button {
     display: grid;
     place-items: center;
   }
@@ -197,9 +325,9 @@ const LowerNavbarWrapper = styled.nav`
   }
 `;
 
-const LowerNavbar = () => {
+const BottomNavbar = () => {
   return (
-    <LowerNavbarWrapper>
+    <BottomNavbarWrapper>
       <NavLink to="/profile">
         <ProfileIcon stroke="var(--color-black)" />
       </NavLink>
@@ -209,7 +337,10 @@ const LowerNavbar = () => {
       <NavLink to="/cart">
         <CartIcon stroke="var(--color-black)" />
       </NavLink>
-    </LowerNavbarWrapper>
+      <button>
+        <CategoriesIcon stroke="var(--color-black)" />
+      </button>
+    </BottomNavbarWrapper>
   );
 };
 
