@@ -3,9 +3,12 @@
 /* ============================================== */
 
 :root {
-  --color-text: var(--color-black);
+  /* APPLICATION SPECIFIC */
 
-  /*  */
+  --color-text: var(--color-black);
+  --color-border: rgb(230, 230, 230);
+
+  /* GENERAL */
 
   --font-logo-lg: 3rem;
   --font-logo-sm: 2.5rem;
@@ -19,17 +22,16 @@
 
   --font-hero-description-lg: 2rem;
   --font-hero-description-md: 1.5rem;
-  --font-hero-description-sm: 1.2rem;
+  --font-hero-description-sm: 1.3rem;
 
   --font-text-lg: 1.6rem;
   --font-text-sm: 1.3rem;
 
   --svg-height: 3rem;
+  --svg-height-sm: 2.5rem;
 
   --input-height-lg: 4rem;
   --input-height-sm: 3.5rem;
-
-  --color-border: rgb(230, 230, 230);
 
   /* DEFAULT */
 

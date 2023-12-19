@@ -38,6 +38,11 @@ const SocialNavbarWrapper = styled.nav`
 
   border-bottom: 1px solid var(--color-border);
 
+  a {
+    display: grid;
+    place-items: center;
+  }
+
   p {
     color: var(--color-gray);
 
